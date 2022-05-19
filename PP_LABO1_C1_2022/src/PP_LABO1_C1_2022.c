@@ -13,6 +13,7 @@
 #include "Censista.h"
 #include "Zonas.h"
 #include "utn.h"
+#include "Informes.h"
 
 
 #define MENSAJE_ERROR_1 "ERROR..FALTA ALTA CENSISTA\n"
@@ -24,7 +25,7 @@ int main(void) {
 	int opcion;
 	int auxCen = -1;
 	int auxZona = -1;
-	int arrayLocalidades[LEN_LOCALIDADES]={AVELLANEDA,QUILMES,BERAZATEGUI};
+	int arrayLocalidades[LEN_LOCALIDADES]={AVELLANEDA,LANUS,LOMAS_DE_ZAMORA,BANFIELD};
 //Nota: cuando muestro la cantidad de zonas que hay en la localidad, le tengo que restar el valor de dicha localidad
 	Censista sCensista[LEN_CENSISTAS];
 	Zonas sZonas[LEN_ZONAS];
@@ -84,7 +85,7 @@ int main(void) {
 			break;
 
 		case 6:
-			completarCenso(sZonas,LEN_ZONAS, sCensista, LEN_CENSISTAS,arrayLocalidades);
+			completarCenso(sZonas,LEN_ZONAS, sCensista, LEN_CENSISTAS);
 			system("pause");
 			break;
 		case 7:
@@ -105,9 +106,15 @@ int main(void) {
 			}
 			system("pause");
 			break;
+		case 9:
+			cantidadCensistasActivosConZonaPendiente(sZonas, LEN_ZONAS, sCensista, LEN_CENSISTAS);
+			censistaConZonaMasCensada(sZonas, LEN_ZONAS, sCensista, LEN_CENSISTAS);
+			nombreLocalidadMasAusentes(sZonas, LEN_ZONAS, sCensista, LEN_CENSISTAS);
+			system("pause");
+			break;
 			/*NO SE PEDIA EXPLICITAMENTE LAS SIGUIENTES OPCIONES, PERO CONSIDERÉ BUENA PRACTICA DEJARLAS.
 			 * PARA PODER OPERAR CON LAS SIGUENTES OPCIONES SE DEBERA AMPLIAR EL RANGO EN EL MENU()*/
-		case 10:
+		case 11:
 			if(hardcodeoZonas(sZonas, LEN_ZONAS, sCensista, LEN_CENSISTAS)==0){
 				auxZona = 1;
 			}
@@ -115,15 +122,15 @@ int main(void) {
 				auxCen = 1;
 			}
 			break;
-		case 11:
+		case 12:
 			modificarZonas(sZonas, LEN_ZONAS, sCensista, LEN_CENSISTAS, arrayLocalidades);
 			break;
-		case 12:
+		case 13:
 			bajaZonas(sZonas, LEN_ZONAS, sCensista, LEN_CENSISTAS, arrayLocalidades);
 			break;
 		}
 
-	}while(opcion!=9);
+	}while(opcion!=10);
 
 	return EXIT_SUCCESS;
 }

@@ -32,12 +32,13 @@ int menu(void)
 	    	printf("6. CARGAR DATOS DE ZONA\n");
 	    	printf("7. MOSTRAR CENSISTAS\n");
 	    	printf("8. MOSTRAR ZONAS\n");
-//	    	printf("10. HARDCODEO DE ZONAS Y CENSISTAS\n");
-//	    	printf("11. MODIFICAR ZONA\n");
-//	    	printf("12. DAR DE BAJA UNA ZONA\n");
-	    	printf("9. SALIR\n");
-	utn_getNumero(&opcion, "Ingrese opcion: ","eRROR..OPCION invalida", 9, 1, 3);
-	//para usar todas las opciones cambiar el 9 por el 12
+//	    	printf("11. HARDCODEO DE ZONAS Y CENSISTAS\n");
+//	    	printf("12. MODIFICAR ZONA\n");
+//	    	printf("13. DAR DE BAJA UNA ZONA\n");
+	    	printf("9. INFORMES\n");
+	    	printf("10. SALIR\n");
+	utn_getNumero(&opcion, "Ingrese opcion: ","eRROR..OPCION invalida", 10, 1, 3);
+	//para usar todas las opciones cambiar el 9 por el 13
 
 	return opcion;
 }

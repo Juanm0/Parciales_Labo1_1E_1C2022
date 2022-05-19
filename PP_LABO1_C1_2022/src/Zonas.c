@@ -47,7 +47,7 @@ int cargarZonas(Zonas pArray[],int len, int arrayLocalidades[]) {
 
 			system("cls");
 			printf("  ******CARGAR ZONAS A CENSAR***** \n\n");
-			if(utn_getNumero(&localidad, "Localidad?\n[1]AVELLANEDA\n[2]QUILMES\n[3]BERAZATEGUI\nIngrese opcion: ", "eRROR..Localidad invalida", 3, 1, 3)==0
+			if(utn_getNumero(&localidad, "Localidad?\n[1]AVELLANEDA\n[2]LANUS\n[3]LOMAS DE ZAMORA\n[4]BANFIELD\nIngrese opcion: ", "eRROR..Localidad invalida", 4, 1, 3)==0
 			&& utn_getDescripcion(pArray[index].Manzana.calle1, sizeof(pArray[index].Manzana.calle1), "CALLE 1: ", "eRROR..Calle invalida", 3)==0
 			&& utn_getDescripcion(pArray[index].Manzana.calle2, sizeof(pArray[index].Manzana.calle2), "CALLE 2: ", "eRROR..Calle invalida", 3)==0
 			&& utn_getDescripcion(pArray[index].Manzana.calle3, sizeof(pArray[index].Manzana.calle3), "CALLE 3: ", "eRROR..Calle invalida", 3)==0
@@ -179,11 +179,14 @@ void mostrarZona(Zonas unaZona, Censista pArray[],int lenCensista) {
 		case AVELLANEDA:
 			strncpy(localidad,"AVELLANEDA",sizeof(localidad));
 			break;
-		case QUILMES:
-			strncpy(localidad,"QUILMES",sizeof(localidad));
+		case LANUS:
+			strncpy(localidad,"LANUS",sizeof(localidad));
 			break;
-		case BERAZATEGUI:
-			strncpy(localidad,"BERAZATEGUI",sizeof(localidad));
+		case LOMAS_DE_ZAMORA:
+			strncpy(localidad,"LOMAS D.ZAMORA",sizeof(localidad));
+			break;
+		case BANFIELD:
+			strncpy(localidad,"BANFIELD",sizeof(localidad));
 			break;
 
 		}
@@ -252,7 +255,7 @@ int buscarZonaById(Zonas pArray[],int lenZona,int idZona) {
 	return retorno;//Si retorno es -1 quiere decir que no hay espacios libres
 }
 
-int completarCenso(Zonas sZonas[],int lenZonas,Censista sCensista[],int lenCensista,int arrayLocalidades[]) {
+int completarCenso(Zonas sZonas[],int lenZonas,Censista sCensista[],int lenCensista) {
 	int retorno = -1;
 	int auxIdZona;
 	int indexZona;
@@ -330,7 +333,7 @@ int modificarZonas(Zonas sZonas[],int lenZonas,Censista sCensista[],int lenCensi
 				do{
 				switch(subMenuZonas(sZonas, lenZonas, auxIdZona, sCensista, lenCensista)){
 				case 1:
-					if(utn_getNumero(&auxLocalidad, "Localidad?\n[1]AVELLANEDA\n[2]QUILMES\n[3]BERAZATEGUI\nIngrese nueva opcion: ",
+					if(utn_getNumero(&auxLocalidad, "Localidad?\n[1]AVELLANEDA\n[2]LANUS\n[3]LOMAS DE ZAMORA\n[4]BANFIELD\nIngrese nueva opcion: ",
 							"eRROR..Localidad invalida", 3, 1, 3)==0){
 
 						arrayLocalidades[sZonas[indexZona].localidad]--;
@@ -449,11 +452,11 @@ int hardcodeoZonas(Zonas sZonas[], int lenZonas,Censista sCensista[],int lenCens
 	int retorno = -1;
 	int auxIndex;
 	Zonas sHardcodZona[LEN_HARCOD_ZONAS]=
-	{{PENDIENTE, {"Ayolas","Tucuman","Int.Pedro Oliveri","Beruti"},QUILMES,0 ,autoIncrementarIdZonas(),-1,0,0,0 },
+	{{PENDIENTE, {"Ayolas","Tucuman","Int.Pedro Oliveri","Beruti"},LANUS,0 ,autoIncrementarIdZonas(),-1,0,0,0 },
 	{PENDIENTE, {"1° de Mayo","Rodolfo Lopez","La Rioja","C.389"},AVELLANEDA,0 ,autoIncrementarIdZonas(),-1,0,0,0 },
-	{PENDIENTE, {"Av.Lamadrid","Favaloro","Zorilla","9 de Julio"},BERAZATEGUI,0 ,autoIncrementarIdZonas(),-1,0,0,0 },
+	{PENDIENTE, {"Av.Lamadrid","Favaloro","Zorilla","9 de Julio"},LOMAS_DE_ZAMORA,0 ,autoIncrementarIdZonas(),-1,0,0,0 },
 	{PENDIENTE, {"Gral.Lavalle","Alsina","San Martin","Chacabuco"},AVELLANEDA,0 ,autoIncrementarIdZonas(),-1,0,0,0},
-	{PENDIENTE, {"Gral.Paz","Av. Programacion","MitreS","C.814"},QUILMES,0 ,autoIncrementarIdZonas(),-1,0,0,0}};
+	{PENDIENTE, {"Gral.Paz","Av. Programacion","MitreS","C.814"},BANFIELD,0 ,autoIncrementarIdZonas(),-1,0,0,0}};
 
 
 	if(sZonas != NULL && lenZonas > 0 && sCensista != NULL && lenCensista > 0) {

@@ -13,10 +13,14 @@
 #define LEN_ZONAS 200
 #define LEN_HARCOD_ZONAS 5
 
-#define LEN_LOCALIDADES 3
+#define LEN_LOCALIDADES 4
+
 #define AVELLANEDA 0
-#define QUILMES 1
-#define BERAZATEGUI 2
+#define LANUS 1
+#define LOMAS_DE_ZAMORA 2
+#define BANFIELD 3
+
+
 
 #define PENDIENTE 1
 #define FINALIZADO 2
@@ -119,7 +123,7 @@ int asignarZonaACensista(Zonas sZonas[],int lenZona, Censista sCensista[], int l
  * @return int retorna (-1) si los puntero son NULL o los len son invalidos
  *  o no pudo encontrar la zona y (0) si pudo completar el censo
  */
-int completarCenso(Zonas sZonas[],int lenZonas,Censista sCensista[],int lenCensista,int arrayLocalidades[]);
+int completarCenso(Zonas sZonas[],int lenZonas,Censista sCensista[],int lenCensista);
 /**
  * @brief Modifica los datos de una zona
  *
