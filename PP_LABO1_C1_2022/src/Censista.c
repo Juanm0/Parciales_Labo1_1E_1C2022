@@ -29,7 +29,7 @@ int menu(void)
 	    	printf("3. DAR DE BAJA CENSISTA\n");
 	    	printf("4. CARGAR ZONA\n");
 	    	printf("5. ASIGNAR UNA ZONA A CENSAR\n");
-	    	printf("6. CARGA DE DATOS\n");
+	    	printf("6. CARGAR DATOS DE ZONA\n");
 	    	printf("7. MOSTRAR CENSISTAS\n");
 	    	printf("8. MOSTRAR ZONAS\n");
 //	    	printf("10. HARDCODEO DE ZONAS Y CENSISTAS\n");
@@ -73,6 +73,8 @@ int altaCensista (Censista pArray[],int len) {
 		&& utn_getDescripcion(pArray[index].domicilio.calle,sizeof(pArray[index].domicilio.calle), "[DOMICILIO]\nIngrese calle: ", "eRROR..Calle invalida",3)==0
 		&& utn_getNumero(&pArray[index].domicilio.altura,"Ingrese altura: ","eRROR..Altura invalida", 20000,0, 3)==0)
 		{
+			primeraLetraMayuscula(pArray[index].nombre, sizeof(pArray[index].nombre));
+			primeraLetraMayuscula(pArray[index].apellido, sizeof(pArray[index].apellido));
 			pArray[index].edad = 2022 - pArray[index].fechaNac.anio;
 			pArray[index].idCensista = autoIncrementarId();
 			pArray[index].isEmpty = 0;

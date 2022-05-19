@@ -34,9 +34,6 @@ int main(void) {
 
 
 
-
-
-
 	do {
 		opcion = menu();
 		switch(opcion){
